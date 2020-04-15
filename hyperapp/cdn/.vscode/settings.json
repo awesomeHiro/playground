@@ -1,4 +1,4 @@
 {
     "editor.formatOnSave": true,
-    "editor.fontFamily": "\"Fira Code\", Consolas, 'Courier New', monospace"
+    "editor.fontFamily": "\"Cascadia Code\", Hack, Consolas, 'Courier New', monospace"
 }

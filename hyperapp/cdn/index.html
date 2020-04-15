@@ -50,17 +50,38 @@
                     )
                 ),
             ])
+        const Filter = props => h("div", { class: "filter" }, [
+            "Filter:",
+            h("span", { class: "filter-word" }, props.filter),
+            h("button", {}, "\u270E")
+        ])
 
+        const StoryDetail = props => h("div", { class: "story" }, [
+            props && h("h1", {}, props.title),
+            props && h("p", {}, `
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua. Ut enim ad minim veniam, qui
+    nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat.
+  `),
+            props && h("p", { class: "signature" }, props.author)
+        ])
+        const Container = content => h("div", { class: "container" }, content)
+        const AutoUpdate = () => h(
+            'div',
+            { class: "autoupdate" },
+            ["Auto update: ", h("input", { type: "checkbox" })]
+
+        )
 
         // -- RUN --
         app({
             node: document.getElementById("app"),
-            view: () => h("div", { id: "app", class: "container" }, [
-                h("div", { class: "filter" }, [
-                    " Filter: ",
-                    h("span", { class: "filter-word" }, "ocean"),
-                    h("button", {}, "\u270E")
-                ]),
+            view: () => Container([
+                Filter({
+                    filter: 'ocean'
+                }),
                 storyList({
                     filter: "ocean",
                     reading: 1,
@@ -82,21 +103,11 @@
                         },
                     }
                 }),
-                h("div", { class: "story" }, [
-                    h("h1", {}, "Ocean life is brutal"),
-                    h("p", {}, `
-      Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis
-      nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat.
-    `),
-                    h("p", { class: "signature" }, "Surphy McBrah")
-                ]),
-                h("div", { class: "autoupdate" }, [
-                    "Auto update: ",
-                    h("input", { type: "checkbox" })
-                ])
+                StoryDetail({
+                    title: "Ocean life is brutal",
+                    author: "Surphy McBrah",
+                }),
+                AutoUpdate(),
             ]),
 
         })
