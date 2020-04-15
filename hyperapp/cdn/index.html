@@ -61,31 +61,27 @@
                     h("span", { class: "filter-word" }, "ocean"),
                     h("button", {}, "\u270E")
                 ]),
-                h("div", { class: "stories" }, [
-                    h("ul", {}, [
-                        storyThumbnail({
-                            unread: true,
-                            reading: false,
-                            filter: 'ocean',
+                storyList({
+                    filter: "ocean",
+                    reading: 1,
+                    stories: {
+                        0: {
                             title: 'The Ocean is Sinking',
                             author: 'Kat Stropher',
-                        }),
-                        storyThumbnail({
-                            unread: true,
-                            reading: false,
-                            filter: 'ocean',
+                            seen: true,
+                        },
+                        1: {
                             title: 'Ocean life is brutal',
                             author: 'Surphy McBrah',
-                        }),
-                        storyThumbnail({
-                            unread: false,
-                            reading: false,
-                            filter: 'ocean',
+                            seen: true,
+                        },
+                        2: {
                             title: 'Family friendly fun at the ocean exhibit',
                             author: 'Guy Prosales',
-                        }),
-                    ]),
-                ]),
+                            seen: true,
+                        },
+                    }
+                }),
                 h("div", { class: "story" }, [
                     h("h1", {}, "Ocean life is brutal"),
                     h("p", {}, `
